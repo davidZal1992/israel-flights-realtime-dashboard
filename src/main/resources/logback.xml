@@ -1,0 +1,28 @@
+<configuration>
+
+    <!-- Define the console appender -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- Define the output format -->
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Set the root log level to WARN for less verbosity -->
+    <root level="WARN">
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+    <!-- Adjusting the log level for your application package -->
+    <logger name="your.application.package" level="DEBUG"/>
+
+    <!-- Setting Kafka client log level to ERROR to reduce verbosity -->
+    <logger name="org.apache.kafka.clients" level="ERROR"/>
+    <logger name="org.apache.kafka.clients.consumer" level="ERROR"/>
+    <logger name="org.apache.kafka.clients.consumer.internals" level="ERROR"/>
+
+    <!-- You can also adjust Spark logs if necessary -->
+    <logger name="org.apache.spark" level="WARN"/>
+    <logger name="org.spark-project" level="WARN"/>
+
+</configuration>
